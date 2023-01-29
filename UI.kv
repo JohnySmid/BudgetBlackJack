@@ -1,0 +1,144 @@
+#:import utils kivy.utils
+
+<MyPopup@Popup>:
+    title: ''
+    size: root.width, root.height
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: Pmessage
+            text: "label text"
+            size_hint: 0.6, 0.2
+            pos_hint: {"x":0.2, "top":1}
+        Button:
+            id: Pbutton
+            text: "close_button"
+            size_hint: 1, 0.4
+            pos_hint: {"x":0, "y":0.1}
+            on_release: root.dismiss()
+
+<RestartPopUp@Popup>:
+    title: ''
+    size: root.width, root.height
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: Pmessage
+            text: "label text"
+            size_hint: 0.6, 0.2
+            pos_hint: {"x":0.2, "top":1}
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                id: PbuttonA
+                text: "close_button"
+                size_hint: 1, 0.4
+                pos_hint: {"x":0, "y":0.1}
+                on_release: root.dismiss()
+            Button:
+                id: PbuttonN
+                text: "close_button"
+                size_hint: 1, 0.4
+                pos_hint: {"x":0, "y":0.1}
+                on_release: root.dismiss()
+
+<SmoothButton@Button>:
+    background_color: (0,0,0,0)
+    background_normal: ''
+    back_color: (1,0,1,1)
+    border_radius: [90]
+    canvas.before:
+        Color:
+            rgba: self.back_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: self.border_radius
+
+
+<MyLayout>
+    canvas.before:
+        Color:
+            rgb: 0, 0, 0
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        GridLayout:
+            cols: 4
+            rows: 1
+            Label:
+                text: 'zetony:'
+                halign: 'right'
+            Label:
+                id: label_score
+                halign: 'left'
+                font_size: 32
+                text: ''
+            Label:
+                text: 'vsazeno:'
+                halign: 'right'
+            Label:
+                id: label_bet
+                halign: 'left'
+                font_size: 32
+                text: ''
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Image:
+                id: img1karty
+                size_hint:  (0.3,1.0)
+                source: ''
+
+            Image:
+                id: img2karty
+                size_hint:  (0.3,1.0)
+                source: ''
+
+            Image:
+                id: img3karty
+                size_hint:  (0.3,1.0)
+                source: ''
+
+
+        Label:
+            id: label1
+            text: ''
+            font_size: 35
+            size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            SmoothButton:
+                id: button_add
+                text: 'Add'
+                font_size: 35
+                back_color: (0.157, 0.455, 0.753, 1.0)
+                background_normal: ''
+                size_hint: (0.5,0.7)
+                on_press: root.Addup()
+            TextInput:
+                id: text_input
+                text: ''
+                font_size: 35
+                halign: "center"
+                size_hint: (0.5, 0.7)
+                multiline: False
+
+        GridLayout:
+            cols: 2
+            rows: 1
+            Button:
+                id: button_hit
+                text: 'Hit'
+                font_size: 35
+                on_press: root.Hit()
+            Button:
+                id: button_stand
+                text: 'Stand'
+                font_size: 35
+                on_press: root.Stand()
+
