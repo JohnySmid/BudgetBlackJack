@@ -4,11 +4,11 @@ Budget black jack aplikace sloužící k základnímu předvedení Kivy GUI a pr
 
 
 Pro kivy file syntax highlighting:
-   1. download .jar file
-   2. On Pycharm’s main menu, click "File"-> "Import" (or Import Settings).
-   3. Select this file and PyCharm will present a dialog with filetypes ticked. Click OK.
-   4. You are done. Restart PyCharm.<br />
-   [source](https://stackoverflow.com/questions/38002630/how-to-get-syntax-highlighting-on-kivy-kv-file-in-pycharm-on-osx)
+   1. stáhnout .jar soubor
+   2. V Pycharmu main menu, kliknout "File" -> "Manage IDE Settings" -> "Import Settings".
+   3. Vybrat .jar soubor a kliknout OK.
+   4. Restart PyCharmu.<br />
+   [zdroj](https://stackoverflow.com/questions/38002630/how-to-get-syntax-highlighting-on-kivy-kv-file-in-pycharm-on-osx)
 
 
 TODO:
