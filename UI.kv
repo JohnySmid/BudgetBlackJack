@@ -17,30 +17,6 @@
             pos_hint: {"x":0, "y":0.1}
             on_release: root.dismiss()
 
-<RestartPopUp@Popup>:
-    title: ''
-    size: root.width, root.height
-    BoxLayout:
-        orientation: 'vertical'
-        Label:
-            id: Pmessage
-            text: "label text"
-            size_hint: 0.6, 0.2
-            pos_hint: {"x":0.2, "top":1}
-        BoxLayout:
-            orientation: 'horizontal'
-            Button:
-                id: PbuttonA
-                text: "close_button"
-                size_hint: 1, 0.4
-                pos_hint: {"x":0, "y":0.1}
-                on_release: root.dismiss()
-            Button:
-                id: PbuttonN
-                text: "close_button"
-                size_hint: 1, 0.4
-                pos_hint: {"x":0, "y":0.1}
-                on_release: root.dismiss()
 
 <SmoothButton@Button>:
     background_color: (0,0,0,0)
