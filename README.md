@@ -5,7 +5,7 @@ Budget black jack aplikace sloužící k základnímu předvedení Kivy GUI a pr
 
 
 ## Kivy file syntax highlighting
-   1. stáhnout .jar soubor
+   1. stáhnout .jar [soubor](https://github.com/JohnySmid/BudgetBlackJack/blob/main/PyCharm_kv_completion.jar)
    2. V Pycharmu main menu, kliknout "File" -> "Manage IDE Settings" -> "Import Settings".
    3. Vybrat .jar soubor a kliknout OK.
    4. Restart PyCharmu.<br />
