@@ -11,6 +11,7 @@ import Deck
 
 Window.size = (700, 400)
 
+# vyuziti kivy.lang knihovny pro pouziti .kv souboru
 Builder.load_file('UI.kv')
 
 # pro jednoduche trackovani skore, init pri spusteni aplikace, pak jen davam na puvodni hodnoty
