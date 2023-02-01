@@ -24,7 +24,7 @@ class Hand:
                 value += int(card.rank)
 
         # vice es v ruce
-        # tj. jestli v ruka je min jak 21, pak hodnota esa je +10, jinak +1
+        # tj. jestli v ruka je min jak 21, pak hodnota esa je +10(+1 uz mame) = +11, jinak zustane hodnota +1
         while num_aces > 0 and value + 10 <= 21:
             value += 10
             num_aces -= 1
