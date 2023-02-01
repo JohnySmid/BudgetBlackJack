@@ -1,7 +1,7 @@
 # BudgetBlackJack
 
 Budget black jack aplikace sloužící k základnímu předvedení Kivy GUI a práce s ním. </br>
-Implementován jednoduchý princip BlackJacku s možností maximálně líznout si 1 další kartu, dealer má k dispozici pouze 2 karty. Aplikace nepracuje s možností sázet na více variant krom výhry.
+Implementován jednoduchý princip BlackJacku s možností si maximálně líznout 1 další kartu, dealer má k dispozici pouze 2 karty. Aplikace nepracuje s možností sázet na více variant krom výhry, ani s pravidlem hodnoty 17<= pro dealera (pokud je hodnota menší jak 17, líže si další kartu).
 
 # .py soubory
    1. Cards.py
