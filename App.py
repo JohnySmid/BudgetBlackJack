@@ -236,7 +236,6 @@ class MyLayout(Widget):
                 PStand.ids.Pbutton.text = 'zavrit'
             # prohra
             else:
-                #print(f'U lose with {self.player_hand.get_value()} points, delears hand was {self.dealer_hand.get_value()}')
                 PStand.ids.Pmessage.text = f'Prohra! S hodnotou {self.player_hand.get_value()}'
 
 
