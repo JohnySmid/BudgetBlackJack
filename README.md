@@ -2,6 +2,23 @@
 
 Budget black jack aplikace sloužící k základnímu předvedení Kivy GUI a práce s ním. Implementován jednoduchý princip BlackJacku s možností maximálně líznout si 1 další kartu, dealer má k dispozici pouze 2 karty. Aplikace nepracuje s možností sázet na více variant krom výhry.
 
+# .py soubory
+   1. Cards.py
+      - zde jsou definovány karty (jejich barva a hodnota)
+   2. Deck.py
+      - zde je definován balík, který se vytvoří jakožto list z karet
+      - dále implementován shuffle a deal funkce
+   3. Hand.py
+      - zde ruka definována jako list
+      - funkce na přidání karty do ruky
+      - funkce na získání hodnoty ruky (pracuje i s pravidlem hodnot Es +1/+10)
+   4. App.py
+      - funkčnost aplikace
+   5. main.py
+      - pro spuštění GUI
+   6. UI.kv
+      - kivy soubor
+
 
 
 ## Kivy file syntax highlighting
