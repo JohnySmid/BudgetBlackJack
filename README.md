@@ -20,6 +20,11 @@ Budget black jack aplikace sloužící k základnímu předvedení Kivy GUI a pr
       - kivy soubor
 
 
+## PIP Installation
+```bash
+python -m pip install "kivy[base]" kivy_examples --no-binary kivy
+```
+
 
 ## Kivy file syntax highlighting
    1. stáhnout .jar [soubor](https://github.com/JohnySmid/BudgetBlackJack/blob/main/PyCharm_kv_completion.jar)
@@ -27,11 +32,8 @@ Budget black jack aplikace sloužící k základnímu předvedení Kivy GUI a pr
    3. Vybrat .jar soubor a kliknout OK.
    4. Restart PyCharmu.<br />
    [zdroj](https://stackoverflow.com/questions/38002630/how-to-get-syntax-highlighting-on-kivy-kv-file-in-pycharm-on-osx)
-
-## PIP Installation
-```bash
-python -m pip install "kivy[base]" kivy_examples --no-binary kivy
-```
+   
+   
 ## TODO:
    - ošetřit pouze čísla v textfile
    - dodělat pravidlo, že pokud hodnota dealera bude 17<=, tak si lízne další kartu
