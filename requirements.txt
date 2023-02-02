@@ -1,0 +1,10 @@
+Kivy @ https://github.com/kivy/kivy/archive/master.zip
+kivy-deps.angle==0.3.3
+kivy-deps.glew==0.3.1
+kivy-deps.sdl2==0.5.1
+Kivy-Garden==0.1.5
+platformdirs==2.6.2
+Pygments==2.14.0
+pypiwin32==223
+pywin32==305
+virtualenv==20.17.1
