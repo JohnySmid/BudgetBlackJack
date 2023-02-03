@@ -40,4 +40,5 @@ python -m pip install "kivy[base]" kivy_examples --no-binary kivy
    - dodělat pravidlo, že pokud hodnota dealera bude 17<=, tak si lízne další kartu
    - využívat pouze 1 Deck dokud to půjde, pak vytvořit nový
    - upravit GUI pro více karet
-   - možnost "registrace / login" do / z databáze a ukládání skóre
+   - možnost "registrace / login" do / z databáze a ukládání skóre (pro zachování stavu po zavření aplikace)
+   - přidat více hráčů
