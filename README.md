@@ -36,7 +36,7 @@ python -m pip install "kivy[base]" kivy_examples --no-binary kivy
    
    
 ## TODO:
-   - ošetřit pouze čísla v textfile
+   - ošetřit pouze čísla v textfile (try except ValueError)
    - dodělat pravidlo, že pokud hodnota dealera bude 17<=, tak si lízne další kartu
    - využívat pouze 1 Deck dokud to půjde, pak vytvořit nový
    - upravit GUI pro více karet
