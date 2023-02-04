@@ -13,40 +13,72 @@ Window.size = (700, 400)
 
 Builder.load_file('UI.kv')
 
-# pro jednoduche trackovani skore, init pri spusteni aplikace, pak jen davam na puvodni hodnoty
 class ScoreTracker:
+    """Třída pro sledování skóre hry.
+
+    Attributes:
+        score (int): Skóre hry.
+    """
+
     def __init__(self):
+        """Inicializuje skóre na 100."""
         self.score = 100
 
-    # odecita skore
     def deduct_score(self, update):
+        """Odečte danou hodnotu ze skóre.
+
+        Args:
+            update (int): Hodnota kterou má být odečtena ze skóre.
+        """
         self.score -= update
 
-    #prida skore
     def addup_score(self, update):
+        """Přičte danou hodnotu k skóre.
+
+        Args:
+            update (int): Hodnota kterou má být přičtena k skóre.
+        """
         self.score += update
 
-    #vrati skore
     def get_score(self):
+        """Vrací aktuální skóre.
+
+        Returns:
+            int: Aktuální skóre.
+        """
         return self.score
 
-# Layout
 class MyLayout(Widget):
+    """Třída pro layout hry.
+
+    Attributes:
+        deck (Deck.Deck): Instance třídy Deck.
+        hit (bool): Informace o tom, zda byla hra ukončena nebo ne.
+        played (bool): Informace o tom, zda byla hra zahrána nebo ne.
+        bet (bool): Informace o tom, zda byla sázka vsazena nebo ne.
+        castkabet (int): Hodnota vsazené sázky.
+        player_hand (Hand.Hand): Instance třídy Hand pro hráče.
+        dealer_hand (Hand.Hand): Instance třídy Hand pro dealera.
+        skore (ScoreTracker): Instance třídy ScoreTracker pro sledování skóre hry.
+    """
+
     def __init__(self, **kwargs):
+        """Inicializuje layout hry.
+
+        Keyword Args:
+            kwargs: Klíčové argumenty předávané z nadtřídy.
+        """
         super().__init__(**kwargs)
         self.playstart()
-        # inicializace ScoreTrackeru()
         self.skore = ScoreTracker()
-        # nastavi text labelu na nase urcene skore
         self.ids.label_score.text = str(self.skore.get_score())
 
-    # pro debug ucely, jsem si udelal fci na "start", zbytecna ale pouzivam ji
     def playstart(self):
+        """Spouští funkci start."""
         self.start()
 
-    # funkce na hru
     def start(self):
-        # init decku, s kazdym kolem se udela novy deck
+        """Inicializuje hru."""
         self.deck = Deck.Deck()
         # zamicha deck
         self.deck.shuffle()
