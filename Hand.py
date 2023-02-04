@@ -1,13 +1,19 @@
 class Hand:
     def __init__(self):
+        """Inicializace prázdného seznamu karet v ruce."""
         self.cards = []
 
     def add_card(self, card):
+        """Přidání karty do seznamu karet v ruce."""
         #print(f'karta: {card}')
         self.cards.append(card)
 
     # vraci hodnotu
     def get_value(self):
+        """Výpočet hodnoty karet v ruce.
+
+            Vrátí součet hodnot jednotlivých karet v ruce, zvažující esa jako 1 nebo 11 v závislosti na hodnotě ostatních karet.
+        """
         value = 0
         num_aces = 0
         # projde to karty v ruce
@@ -31,5 +37,6 @@ class Hand:
         return value
 
     def DEBUG_LISTCARDS(self):
+        """Debugovací metoda výpisu karet v ruce."""
         for index, element in enumerate(self.cards):
             print(f"Element {element} is at index {index}")
