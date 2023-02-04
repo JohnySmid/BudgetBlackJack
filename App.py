@@ -11,7 +11,6 @@ import Deck
 
 Window.size = (700, 400)
 
-# vyuziti kivy.lang knihovny pro pouziti .kv souboru
 Builder.load_file('UI.kv')
 
 # pro jednoduche trackovani skore, init pri spusteni aplikace, pak jen davam na puvodni hodnoty
@@ -90,57 +89,65 @@ class MyLayout(Widget):
     # f-ce pro pridavani sazek
     def Addup(self):
         # uz jednou vsadil
-        if self.bet == True:
-            # PopUp - definovan na zacatku .kv souboru
-            # widgety to jiz obsahuje, menime pouze jejich hodnoty
-            PUzVsazeno = Factory.MyPopup()
-            PUzVsazeno.ids.Pmessage.text = 'Uz jste si jednou vsadil, dejte hit nebo stand'
-            PUzVsazeno.ids.Pbutton.text = 'zavrit'
-            PUzVsazeno.open()
-        # prazdny input
-        elif self.ids.text_input.text == '' and self.skore.get_score() != 1:
-            PChybneZadani = Factory.MyPopup()
-            PChybneZadani.ids.Pmessage.text = 'Zadejte sazku'
-            PChybneZadani.ids.Pbutton.text = 'zavrit'
-            PChybneZadani.open()
+        try:
+            if self.bet == True:
+                # PopUp - definovan na zacatku .kv souboru
+                # widgety to jiz obsahuje, menime pouze jejich hodnoty
+                PUzVsazeno = Factory.MyPopup()
+                PUzVsazeno.ids.Pmessage.text = 'Uz jste si jednou vsadil, dejte hit nebo stand'
+                PUzVsazeno.ids.Pbutton.text = 'zavrit'
+                PUzVsazeno.open()
+            # prazdny input
+            elif self.ids.text_input.text == '' and self.skore.get_score() != 1:
+                PChybneZadani = Factory.MyPopup()
+                PChybneZadani.ids.Pmessage.text = 'Zadejte sazku'
+                PChybneZadani.ids.Pbutton.text = 'zavrit'
+                PChybneZadani.open()
 
 
-        # restart hry, pokud hrac prohraje a ma 1 zeton
-        if self.bet == False and self.skore.get_score() == 1:
-            PResetHry = Factory.MyPopup()
-            PResetHry.ids.Pmessage.text = 'Restart hry'
-            PResetHry.ids.Pbutton.text = 'ok'
-            PResetHry.open()
-            self.skore.addup_score(100-1)
-            self.ids.label_score.text = str(self.skore.get_score())
-            self.playstart()
-        # sazka
-        elif self.bet == False and self.ids.text_input.text != '':
-            self.bet = True
-            # pokud zadame vice nez mame zetonu
-            if self.skore.get_score() < int(self.ids.text_input.text):
-                self.bet = False
-                PMocZetonu = Factory.MyPopup()
-                PMocZetonu.ids.Pmessage.text = 'Nemate tolik zetonu'
-                PMocZetonu.ids.Pbutton.text = 'zavrit'
-                PMocZetonu.open()
-                self.ids.text_input.text = ''
-            else:
-                self.skore.deduct_score(int(self.ids.text_input.text))
-                self.castkabet = int(self.ids.text_input.text)
-                self.ids.label_bet.text = str(self.castkabet)
-
-                # pokud mame 0 a min zetonu
-                if self.skore.get_score() <= 0:
+            # restart hry, pokud hrac prohraje a ma 1 zeton
+            if self.bet == False and self.skore.get_score() == 1:
+                PResetHry = Factory.MyPopup()
+                PResetHry.ids.Pmessage.text = 'Restart hry'
+                PResetHry.ids.Pbutton.text = 'ok'
+                PResetHry.open()
+                self.skore.addup_score(100-1)
+                self.ids.label_score.text = str(self.skore.get_score())
+                self.playstart()
+            # sazka
+            elif self.bet == False and self.ids.text_input.text != '':
+                self.bet = True
+                # pokud zadame vice nez mame zetonu
+                if self.skore.get_score() < int(self.ids.text_input.text):
                     self.bet = False
-                    # musime pridat skore, jelikoz uz jsme odecetli
-                    self.skore.addup_score(int(self.ids.text_input.text))
-                    PZeroZetonu = Factory.MyPopup()
-                    PZeroZetonu.ids.Pmessage.text = 'Nemuzete mit 0 zetonu, zadejte mensi castku'
-                    PZeroZetonu.ids.Pbutton.text = 'zavrit'
-                    PZeroZetonu.open()
+                    PMocZetonu = Factory.MyPopup()
+                    PMocZetonu.ids.Pmessage.text = 'Nemate tolik zetonu'
+                    PMocZetonu.ids.Pbutton.text = 'zavrit'
+                    PMocZetonu.open()
+                    self.ids.text_input.text = ''
                 else:
-                    self.ids.label_score.text = str(self.skore.get_score())
+                    self.skore.deduct_score(int(self.ids.text_input.text))
+                    self.castkabet = int(self.ids.text_input.text)
+                    self.ids.label_bet.text = str(self.castkabet)
+
+                    # pokud mame 0 a min zetonu
+                    if self.skore.get_score() <= 0:
+                        self.bet = False
+                        # musime pridat skore, jelikoz uz jsme odecetli
+                        self.skore.addup_score(int(self.ids.text_input.text))
+                        PZeroZetonu = Factory.MyPopup()
+                        PZeroZetonu.ids.Pmessage.text = 'Nemuzete mit 0 zetonu, zadejte mensi castku'
+                        PZeroZetonu.ids.Pbutton.text = 'zavrit'
+                        PZeroZetonu.open()
+                    else:
+                        self.ids.label_score.text = str(self.skore.get_score())
+
+        except ValueError:
+            PZadejteCislo = Factory.MyPopup()
+            PZadejteCislo.ids.Pmessage.text = 'Zadejte cislo'
+            PZadejteCislo.ids.Pbutton.text = 'zavrit'
+            PZadejteCislo.open()
+            self.bet = False
 
         self.ids.text_input.text = ''
 
@@ -236,6 +243,7 @@ class MyLayout(Widget):
                 PStand.ids.Pbutton.text = 'zavrit'
             # prohra
             else:
+                #print(f'U lose with {self.player_hand.get_value()} points, delears hand was {self.dealer_hand.get_value()}')
                 PStand.ids.Pmessage.text = f'Prohra! S hodnotou {self.player_hand.get_value()}'
 
 
